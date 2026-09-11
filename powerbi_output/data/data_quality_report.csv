@@ -1,0 +1,27 @@
+Metric,Value
+Source workbook,Excel Project Dataset.xlsx
+Raw rows,1026
+Raw duplicate customer IDs,26
+Raw full duplicate rows,26
+Clean rows,1000
+Clean duplicate customer IDs,0
+Clean missing values,0
+Missing values - Customer ID,0
+Missing values - Marital Status,0
+Missing values - Gender,0
+Missing values - Income,0
+Missing values - Income Band,0
+Missing values - Income Band Sort,0
+Missing values - Children,0
+Missing values - Education,0
+Missing values - Occupation,0
+Missing values - Home Owner,0
+Missing values - Cars,0
+Missing values - Commute Distance,0
+Missing values - Commute Distance Sort,0
+Missing values - Region,0
+Missing values - Age,0
+Missing values - Age Bracket,0
+Missing values - Age Bracket Sort,0
+Missing values - Purchased Bike,0
+Missing values - Purchase Flag,0

@@ -1,0 +1,52 @@
+{
+  "name": "Bike Sales Executive Theme",
+  "dataColors": [
+    "#00A878",
+    "#304FFE",
+    "#FFB000",
+    "#E84855",
+    "#7B2CBF",
+    "#0F8B8D",
+    "#F9844A"
+  ],
+  "background": "#F7F9FC",
+  "foreground": "#1D2733",
+  "tableAccent": "#00A878",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#1D2733"
+              }
+            },
+            "fontSize": 12
+          }
+        ],
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#E5EAF2"
+              }
+            },
+            "radius": 8
+          }
+        ]
+      }
+    }
+  }
+}

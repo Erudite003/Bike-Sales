@@ -1,0 +1,129 @@
+table 'Bike Buyers'
+
+	partition 'Bike Buyers' = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(CsvPath), [Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				#"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers", {{"Customer ID", Int64.Type}, {"Marital Status", type text}, {"Gender", type text}, {"Income", Int64.Type}, {"Income Band", type text}, {"Income Band Sort", Int64.Type}, {"Children", Int64.Type}, {"Education", type text}, {"Occupation", type text}, {"Home Owner", type text}, {"Cars", Int64.Type}, {"Commute Distance", type text}, {"Commute Distance Sort", Int64.Type}, {"Region", type text}, {"Age", Int64.Type}, {"Age Bracket", type text}, {"Age Bracket Sort", Int64.Type}, {"Purchased Bike", type text}, {"Purchase Flag", Int64.Type}})
+			in
+				#"Changed Type"
+
+	measure 'Total Customers' = COUNTROWS('Bike Buyers')
+		formatString: #,##0
+
+	measure 'Bike Buyers' = CALCULATE([Total Customers], 'Bike Buyers'[Purchased Bike] = "Yes")
+		formatString: #,##0
+
+	measure 'Non-Buyers' = [Total Customers] - [Bike Buyers]
+		formatString: #,##0
+
+	measure 'Bike Purchase Rate' = DIVIDE([Bike Buyers], [Total Customers])
+		formatString: 0.0%
+
+	measure 'Average Income' = AVERAGE('Bike Buyers'[Income])
+		formatString: $#,##0
+
+	measure 'Average Age' = AVERAGE('Bike Buyers'[Age])
+		formatString: 0.0
+
+	column 'Customer ID'
+		dataType: int64
+		sourceColumn: "Customer ID"
+		summarizeBy: none
+
+	column 'Marital Status'
+		dataType: string
+		sourceColumn: "Marital Status"
+		summarizeBy: none
+
+	column Gender
+		dataType: string
+		sourceColumn: Gender
+		summarizeBy: none
+
+	column Income
+		dataType: int64
+		sourceColumn: Income
+		summarizeBy: sum
+		formatString: $#,##0
+
+	column 'Income Band'
+		dataType: string
+		sourceColumn: "Income Band"
+		summarizeBy: none
+
+	column 'Income Band Sort'
+		dataType: int64
+		isHidden
+		sourceColumn: "Income Band Sort"
+		summarizeBy: none
+
+	column Children
+		dataType: int64
+		sourceColumn: Children
+		summarizeBy: sum
+
+	column Education
+		dataType: string
+		sourceColumn: Education
+		summarizeBy: none
+
+	column Occupation
+		dataType: string
+		sourceColumn: Occupation
+		summarizeBy: none
+
+	column 'Home Owner'
+		dataType: string
+		sourceColumn: "Home Owner"
+		summarizeBy: none
+
+	column Cars
+		dataType: int64
+		sourceColumn: Cars
+		summarizeBy: sum
+
+	column 'Commute Distance'
+		dataType: string
+		sourceColumn: "Commute Distance"
+		summarizeBy: none
+
+	column 'Commute Distance Sort'
+		dataType: int64
+		isHidden
+		sourceColumn: "Commute Distance Sort"
+		summarizeBy: none
+
+	column Region
+		dataType: string
+		sourceColumn: Region
+		summarizeBy: none
+
+	column Age
+		dataType: int64
+		sourceColumn: Age
+		summarizeBy: average
+
+	column 'Age Bracket'
+		dataType: string
+		sourceColumn: "Age Bracket"
+		summarizeBy: none
+
+	column 'Age Bracket Sort'
+		dataType: int64
+		isHidden
+		sourceColumn: "Age Bracket Sort"
+		summarizeBy: none
+
+	column 'Purchased Bike'
+		dataType: string
+		sourceColumn: "Purchased Bike"
+		summarizeBy: none
+
+	column 'Purchase Flag'
+		dataType: int64
+		isHidden
+		sourceColumn: "Purchase Flag"
+		summarizeBy: sum
