@@ -1,0 +1,6 @@
+Commute Distance,Customers,Bike Buyers,Non-Buyers,Purchase Rate,Purchase Rate Display,Average Income,Average Age
+0-1 Miles,366,200,166,0.546448,54.6%,49562.84,41.63
+1-2 Miles,169,77,92,0.455621,45.6%,51893.49,43.6
+2-5 Miles,162,95,67,0.58642,58.6%,60493.83,43.17
+5-10 Miles,192,76,116,0.395833,39.6%,59062.5,46.39
+More than 10 miles,111,33,78,0.297297,29.7%,74864.86,50.98

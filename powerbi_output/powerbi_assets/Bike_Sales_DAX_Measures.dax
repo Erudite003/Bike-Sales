@@ -1,0 +1,53 @@
+// Bike Sales Power BI measures
+// Table name assumed: 'Bike Buyers'
+
+Total Customers = COUNTROWS('Bike Buyers')
+
+Bike Buyers =
+CALCULATE(
+    [Total Customers],
+    'Bike Buyers'[Purchased Bike] = "Yes"
+)
+
+Non-Buyers = [Total Customers] - [Bike Buyers]
+
+Bike Purchase Rate = DIVIDE([Bike Buyers], [Total Customers])
+
+Average Income = AVERAGE('Bike Buyers'[Income])
+
+Average Age = AVERAGE('Bike Buyers'[Age])
+
+Median Income = MEDIAN('Bike Buyers'[Income])
+
+Average Income - Buyers =
+CALCULATE(
+    [Average Income],
+    'Bike Buyers'[Purchased Bike] = "Yes"
+)
+
+Average Income - Non-Buyers =
+CALCULATE(
+    [Average Income],
+    'Bike Buyers'[Purchased Bike] = "No"
+)
+
+Purchase Rate Delta vs Overall =
+[Bike Purchase Rate]
+    - CALCULATE([Bike Purchase Rate], ALL('Bike Buyers'))
+
+High-Propensity Customers =
+CALCULATE(
+    [Total Customers],
+    'Bike Buyers'[Age Bracket] = "Middle Age",
+    'Bike Buyers'[Cars] <= 1
+)
+
+High-Propensity Buyers =
+CALCULATE(
+    [Bike Buyers],
+    'Bike Buyers'[Age Bracket] = "Middle Age",
+    'Bike Buyers'[Cars] <= 1
+)
+
+High-Propensity Purchase Rate =
+DIVIDE([High-Propensity Buyers], [High-Propensity Customers])

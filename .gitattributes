@@ -1,0 +1,13 @@
+# Keep generated Power BI project files reviewable and cross-platform
+*.tmdl text eol=lf
+*.json text eol=lf
+*.pbip text eol=lf
+*.pbism text eol=lf
+*.pbir text eol=lf
+*.csv text eol=lf
+*.md text eol=lf
+
+# Binary BI/Office artifacts
+*.xlsx binary
+*.pbix binary
+*.abf binary

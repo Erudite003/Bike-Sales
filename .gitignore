@@ -1,0 +1,10 @@
+# Power BI local/user-specific and cache files
+.pbi/
+**/.pbi/
+**/localSettings.json
+*.abf
+**/cache.abf
+
+# Office temporary files
+~$*
+*.tmp

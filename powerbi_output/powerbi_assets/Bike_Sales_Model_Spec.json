@@ -1,0 +1,94 @@
+{
+  "table_name": "Bike Buyers",
+  "source_file": "powerbi_output/data/bike_buyers_clean.csv",
+  "grain": "One row per unique customer/customer survey response",
+  "columns": [
+    {
+      "name": "Customer ID",
+      "type": "Whole number",
+      "summarize_by": "Do not summarize"
+    },
+    {
+      "name": "Marital Status",
+      "type": "Text"
+    },
+    {
+      "name": "Gender",
+      "type": "Text"
+    },
+    {
+      "name": "Income",
+      "type": "Whole number",
+      "format": "$#,0"
+    },
+    {
+      "name": "Income Band",
+      "type": "Text",
+      "sort_by": "Income Band Sort"
+    },
+    {
+      "name": "Income Band Sort",
+      "type": "Whole number",
+      "hide": true
+    },
+    {
+      "name": "Children",
+      "type": "Whole number"
+    },
+    {
+      "name": "Education",
+      "type": "Text"
+    },
+    {
+      "name": "Occupation",
+      "type": "Text"
+    },
+    {
+      "name": "Home Owner",
+      "type": "Text"
+    },
+    {
+      "name": "Cars",
+      "type": "Whole number"
+    },
+    {
+      "name": "Commute Distance",
+      "type": "Text",
+      "sort_by": "Commute Distance Sort"
+    },
+    {
+      "name": "Commute Distance Sort",
+      "type": "Whole number",
+      "hide": true
+    },
+    {
+      "name": "Region",
+      "type": "Text"
+    },
+    {
+      "name": "Age",
+      "type": "Whole number"
+    },
+    {
+      "name": "Age Bracket",
+      "type": "Text",
+      "sort_by": "Age Bracket Sort"
+    },
+    {
+      "name": "Age Bracket Sort",
+      "type": "Whole number",
+      "hide": true
+    },
+    {
+      "name": "Purchased Bike",
+      "type": "Text"
+    },
+    {
+      "name": "Purchase Flag",
+      "type": "Whole number",
+      "hide": true
+    }
+  ],
+  "recommended_measures_file": "powerbi_output/powerbi_assets/Bike_Sales_DAX_Measures.dax",
+  "recommended_theme_file": "powerbi_output/powerbi_assets/Bike_Sales_PowerBI_Theme.json"
+}
